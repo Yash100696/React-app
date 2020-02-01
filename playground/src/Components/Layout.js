@@ -6,7 +6,8 @@ class Layout extends React.Component {
   state = {
     loading: true,
     items: [],
-    value: true
+    value: true,
+    url:`http://localhost:5000`
   }
 
   yash() {
@@ -18,13 +19,13 @@ class Layout extends React.Component {
   }
 
   componentDidMount() {
-    let api = `https://jsonplaceholder.typicode.com/users`;
+    let api = `${this.state.url}/api/members`;
     let secondApi = `https://api.randomuser.me/`;
     fetch(api).then(res => res.json())
-      .then(json => {
+      .then(data => {
         this.setState({
           loading: false,
-          items: json
+          items: data
         })
         fetch(secondApi)
           .then(res => res.json())
@@ -51,7 +52,7 @@ class Layout extends React.Component {
               <div>Show</div> :
               null
           }
-          <Button variant="contained" onClick={() => this.yash()}>
+          <Button variant="contained" onClick={()=> this.yash()}>
             Click
           </Button>
         </div>
