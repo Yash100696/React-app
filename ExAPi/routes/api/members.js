@@ -4,7 +4,7 @@ const members = require(`../../Members`)
 
 
 router.get(`/`, (req, res) => {
-    res.json(members);
+    res.send(members);
 });
 
 //get single member

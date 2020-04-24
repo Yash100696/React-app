@@ -1,7 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import './App.css';
 let Layout = lazy(() => import('./Components/Layout'));
-class App extends React.Component {
+export default class App extends React.Component {
 
   render() {
     return (
@@ -16,4 +16,3 @@ class App extends React.Component {
   }
 }
 
-export default App;
